@@ -29,7 +29,7 @@ int str_compare(char *str, char *compare)
     for (; compare[size2] != '\0'; size2++);
     if (size1 == size2) {
         for (i = 0; str[i] == compare[i] && str[i] != '\0'
-                 && compare[i] != '\0'; i++);
+                    && compare[i] != '\0'; i++);
         if (i == size1)
             return (0);
     }
