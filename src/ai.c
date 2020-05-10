@@ -88,6 +88,7 @@ int ai(void)
             check = ai_2(dist[0], dist, info);
         if (check != 0)
             return 84;
+        write(1, "STOP_SIMULATION\n", 16);
     }
     return 1;
 }
