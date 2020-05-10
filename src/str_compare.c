@@ -7,6 +7,19 @@
 
 #include "my.h"
 
+int my_strlen(char *str)
+{
+    int i = 0;
+
+    for (; str[i] != '\0'; i++);
+    return (i);
+}
+
+void my_put_str(char *str)
+{
+    write(2, str, my_strlen(str));
+}
+
 int str_n_compare(char *str, char *compare, int nb)
 {
     int size1 = 0;

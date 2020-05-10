@@ -11,11 +11,17 @@ NAME	=	ai
 
 SRC	=	src/main.c	\
 		src/str_compare.c	\
-		src/str_to_word_ar.c
+		src/str_to_word_ar.c \
+		src/display.c \
+		src/dist.c \
+		src/cmds.c \
+		src/cmds_2.c \
+		src/cmds_3.c \
+		src/ai.c \
 
 OBJ		=	$(SRC:.c=.o)
 
-CFLAGS  =       -I ./include/ -Wall -Wextra
+CFLAGS  =       -I ./include/
 
 all:	$(NAME)
 
