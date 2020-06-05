@@ -14,10 +14,9 @@ SRC	=	src/main.c	\
 		src/str_to_word_ar.c \
 		src/display.c \
 		src/dist.c \
-		src/cmds.c \
-		src/cmds_2.c \
-		src/cmds_3.c \
+		src/cmd_execut.c \
 		src/ai.c \
+		src/ai_2.c \
 
 OBJ		=	$(SRC:.c=.o)
 

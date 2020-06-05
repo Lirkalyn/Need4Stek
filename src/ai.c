@@ -7,88 +7,44 @@
 
 #include "my.h"
 
-int ai_4(int len, int *dist, char **info)
+all *select_speed(all *info, int mid_dist)
 {
-    int max = (dist[1] > dist[len]) ? dist[1] : dist[len];
-    int which = (dist[1] > dist[len]) ? 0 : 1;
-    int amax10 = max/10;
-    int a3max10 = ((max/10) * 3);
-    int a5max10 = ((max/10) * 5);
-
-    if (which == 1 && ((dist[len] - dist[1]) > amax10))
-        if ((dist[len] - dist[1]) > a5max10);
-            if (left_5() == 84)
-                return 84;
-        else if ((dist[len] - dist[1]) > a3max10);
-            if (left_3() == 84)
-                return 84;
-        else;
-            if (left_1() == 84)
-                return 84;
-    return 0;
-}
-
-int ai_3(int len, int *dist, char **info)
-{
-    int max = (dist[1] > dist[len]) ? dist[1] : dist[len];
-    int which = (dist[1] > dist[len]) ? 0 : 1;
-    int amax10 = max/10;
-    int a3max10 = ((max/10) * 3);
-    int a5max10 = ((max/10) * 5);
-
-    if (which == 0 && ((dist[1] - dist[len]) > amax10))
-        if ((dist[1] - dist[len]) > a5max10);
-            if (right_5() == 84)
-                return 84;
-        else if ((dist[1] - dist[len]) > a3max10);
-            if (right_3() == 84)
-                return 84;
-        else;
-            if (right_1() == 84)
-                return 84;
-    return 0;
-}
-
-int ai_2(int len, int *dist, char **info)
-{
-    if (dist[(len / 2)] > 2750) {
-        if (forward_full() == 84)
-            return 84;
-    }
-    else if (dist[(len / 2)] > 1000) {
-        if (forward_half() == 84)
-            return 84;
-    }
+    if (mid_dist >= 2000)
+        return forward(info, "CAR_FORWARD:1.0\n");
+    if (mid_dist >= 1500)
+        return forward(info, "CAR_FORWARD:0.8\n");
+    if (mid_dist >= 1000)
+        return forward(info, "CAR_FORWARD:0.5\n");
+    if (mid_dist >= 600)
+        return forward(info, "CAR_FORWARD:0.4\n");
+    if (mid_dist >= 400)
+        return forward(info, "CAR_FORWARD:0.2\n");
     else
-        if (stop() == 84)
-            return 84;
-    return 0;
+        return forward(info, "CAR_FORWARD:0.1\n");
 }
 
-int ai(void)
+all *get_lidar(all *info)
 {
-    char buff[256];
-    char **info = NULL;
-    int *dist = NULL;
-    int check = 0;
+    write(1, "GET_INFO_LIDAR\n", 15);
+    read(0, info->buff, 256);
+    info->tab = str_to_word_ar(info->buff, ':');
+    if (good_returned(info->tab, 0) != 0)
+        return NULL;
+    info->dist = dist_mallocer(info->tab);
+    info->dist = dist_giver(info->tab, info->dist);
+    return info;
+}
 
+int ai(all *info)
+{
     while (1) {
-        write(1, "GET_INFO_LIDAR\n", 15);
-        read(0, buff, 256);
-        info = str_to_word_ar(buff, ':');
-        if (good_returned(info, 0) != 0)
+        info = get_lidar(info);
+        info = select_speed(info, info->dist[15]); // info = select_speed(info, info->dist[(info->dist[0] / 2)]);
+        if (info == NULL)
             return 84;
-        dist = dist_mallocer(info);
-        dist = dist_giver(info, dist);
-        if (isturn(dist[1], dist[dist[0]]) == 1)
-            check = ai_3(dist[0], dist, info);
-        else if (isturn(dist[1], dist[dist[0]]) == 2)
-            check = ai_4(dist[0], dist, info);
-        else
-            check = ai_2(dist[0], dist, info);
-        if (check != 0)
+        info = get_lidar(info);
+        info = right_or_left(info);
+        if (info == NULL)
             return 84;
-        write(1, "STOP_SIMULATION\n", 16);
     }
-    return 1;
 }
