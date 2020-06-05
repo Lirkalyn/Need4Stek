@@ -12,6 +12,7 @@ NAME	=	ai
 SRC	=	src/main.c	\
 		src/str_compare.c	\
 		src/str_to_word_ar.c \
+		src/my_str_to_word_array.c \
 		src/display.c \
 		src/dist.c \
 		src/cmd_execut.c \

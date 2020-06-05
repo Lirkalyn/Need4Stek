@@ -41,7 +41,7 @@ all *turn_right(all *info, int mid_dist)
 
 all *right_or_left(all *info)
 {
-    int dir = (info->dist[1] - info->dist[31]);
+    int dir = (info->dist[1] - info->dist[32]);
 
     //fprintf(stderr, "(%d - %d) = %d\n", info->dist[1], info->dist[31], dir);
 

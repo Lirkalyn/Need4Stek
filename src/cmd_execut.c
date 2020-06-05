@@ -15,7 +15,7 @@ all *forward(all *info, char *cmd)
 
     write(1, cmd, 16);
     read(0, info->buff, 256);
-    info->tab = str_to_word_ar(info->buff, ':');
+    info->tab = my_str_to_word_array(info->buff);
     if (good_returned(info->tab, 0) != 0) {
         fprintf(stderr, "f2\n");
         if (try == 10)
@@ -23,7 +23,7 @@ all *forward(all *info, char *cmd)
         try++;
         write(1, cmd, 16);
         read(0, info->buff, 256);
-        info->tab = str_to_word_ar(info->buff, ':');
+        info->tab = my_str_to_word_array(info->buff);
     }
     return info;
 }
@@ -37,7 +37,7 @@ all *left(all *info, char *cmd)
 
     write(1, cmd, len);
     read(0, info->buff, 256);
-    info->tab = str_to_word_ar(info->buff, ':');
+    info->tab = my_str_to_word_array(info->buff);
     if (good_returned(info->tab, 0) != 0) {
         fprintf(stderr, "l2\n");
         if (try == 10)
@@ -45,7 +45,7 @@ all *left(all *info, char *cmd)
         try++;
         write(1, cmd, len);
         read(0, info->buff, 256);
-        info->tab = str_to_word_ar(info->buff, ':');
+        info->tab = my_str_to_word_array(info->buff);
     }
     return info;
 }
@@ -59,7 +59,7 @@ all *right(all *info, char *cmd)
 
     write(1, cmd, len);
     read(0, info->buff, 256);
-    info->tab = str_to_word_ar(info->buff, ':');
+    info->tab = my_str_to_word_array(info->buff);
     if (good_returned(info->tab, 0) != 0) {
         fprintf(stderr, "r2\n");
         if (try == 10)
@@ -67,7 +67,7 @@ all *right(all *info, char *cmd)
         try++;
         write(1, cmd, len);
         read(0, info->buff, 256);
-        info->tab = str_to_word_ar(info->buff, ':');
+        info->tab = my_str_to_word_array(info->buff);
     }
     return info;
 }

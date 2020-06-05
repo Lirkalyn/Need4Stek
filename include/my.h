@@ -54,5 +54,6 @@ all *left(all *info, char *cmd);
 all *right(all *info, char *cmd);
 all *right_or_left(all *info);
 int my_strlen(char *str);
+char **my_str_to_word_array(char const *str);
 
 #endif

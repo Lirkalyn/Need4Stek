@@ -27,7 +27,7 @@ all *get_lidar(all *info)
 {
     write(1, "GET_INFO_LIDAR\n", 15);
     read(0, info->buff, 256);
-    info->tab = str_to_word_ar(info->buff, ':');
+    info->tab = my_str_to_word_array(info->buff);
     if (good_returned(info->tab, 0) != 0)
         return NULL;
     info->dist = dist_mallocer(info->tab);
@@ -39,7 +39,7 @@ int ai(all *info)
 {
     while (1) {
         info = get_lidar(info);
-        info = select_speed(info, info->dist[15]); // info = select_speed(info, info->dist[(info->dist[0] / 2)]);
+        info = select_speed(info, info->dist[15]); // info = select_speed(info, info->dist[(info->dist[0] / 2)]); // êut être faire la moyenne entre 15 et 16 ?
         if (info == NULL)
             return 84;
         info = get_lidar(info);

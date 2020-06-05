@@ -25,13 +25,13 @@ int *dist_mallocer_2(int *rsl, int len)
 {
     int i = 0;
 
-    rsl = malloc((len + 2) * sizeof(int));
+    rsl = malloc((len + 1) * sizeof(int));
     if (rsl == NULL)
         return NULL;
     for (; i < len; i++)
         rsl[i] = 0;
     rsl[0] = len;
-    rsl[(len + 1)] = -5;
+    rsl[len] = -5;
     return rsl;
 }
 
@@ -54,7 +54,8 @@ int *dist_mallocer(char **str)
         if (good == 0 && goodd == 1)
             len++;
     }
-    return dist_mallocer_2(rsl, len);
+    //fprintf(stderr, "%d\n\n", (len + 1));
+    return dist_mallocer_2(rsl, (len + 1));
 }
 
 int *dist_giver_2(char *str, int *dist, int pos)

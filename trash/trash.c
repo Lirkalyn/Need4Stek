@@ -39,6 +39,8 @@ int ai(void)
 
 //fprintf(stderr, "");
 
+//    for (int i = 0; info->dist[i] != -5; i++)
+//        fprintf(stderr, "%d\n", info->dist[i]);
 
 
         fprintf(stderr, "base\n\n");
