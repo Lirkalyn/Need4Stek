@@ -43,10 +43,10 @@ all *right_or_left(all *info)
 {
     int dir = (info->dist[1] - info->dist[31]);
 
-    fprintf(stderr, "%d\n", dir);
+    //fprintf(stderr, "(%d - %d) = %d\n", info->dist[1], info->dist[31], dir);
 
     if (dir < 0)
         return turn_left(info, info->dist[15]);
-    else
+    else if (dir > 0)
         return turn_right(info, info->dist[15]);
 }

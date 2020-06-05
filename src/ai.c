@@ -10,17 +10,17 @@
 all *select_speed(all *info, int mid_dist)
 {
     if (mid_dist >= 2000)
-        return forward(info, "CAR_FORWARD:1.0\n");
+        return forward(info, "CAR_FORWARD:1.0\n"); // 1.0
     if (mid_dist >= 1500)
-        return forward(info, "CAR_FORWARD:0.8\n");
+        return forward(info, "CAR_FORWARD:0.7\n"); // 0.8
     if (mid_dist >= 1000)
-        return forward(info, "CAR_FORWARD:0.5\n");
+        return forward(info, "CAR_FORWARD:0.4\n"); // 0.5
     if (mid_dist >= 600)
-        return forward(info, "CAR_FORWARD:0.4\n");
+        return forward(info, "CAR_FORWARD:0.3\n"); // 0.4
     if (mid_dist >= 400)
-        return forward(info, "CAR_FORWARD:0.2\n");
+        return forward(info, "CAR_FORWARD:0.2\n"); // 0.2
     else
-        return forward(info, "CAR_FORWARD:0.1\n");
+        return forward(info, "CAR_FORWARD:0.1\n"); // 0.1
 }
 
 all *get_lidar(all *info)
