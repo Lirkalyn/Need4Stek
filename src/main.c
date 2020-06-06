@@ -28,9 +28,9 @@ all *info_initializer(void)
 
     if (info == NULL)
         return NULL;
-    info->buff = malloc(256 * sizeof(char));
-    if (info->buff == NULL)
-        return NULL;
+    info->size_buff = 0;
+    info->buff = NULL;
+    info->read = 0;
     info->tab = NULL;
     info->dist = NULL;
     info->over = 0;
@@ -45,7 +45,8 @@ int main(void)
     if (info == NULL)
         return 84;
     write(1, "START_SIMULATION\n", 17);
-    read(0, info->buff, 256);
+    info->read = getline(&info->buff, &info->size_buff, stdin);
+    info->buff[(info->read - 1)] = '\0';
     info->tab = my_str_to_word_array(info->buff);
     if (good_returned(info->tab, 0) != 0) {
         write(1, "STOP_SIMULATION\n", 16);

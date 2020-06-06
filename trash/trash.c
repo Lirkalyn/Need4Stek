@@ -108,3 +108,43 @@ int ai_2(int len, int *dist, char **info)
             return 84;
     return 0;
 }
+
+
+
+/*int main(void)
+{
+/*    char *line = NULL;
+    int read = 0;
+    size_t len = 0;
+
+
+    all *info = info_initializer();
+    //int error = 0;
+
+//    if (info == NULL)
+//        return 84;
+
+
+    write(1, "START_SIMULATION\n", 17);
+    info->read = getline(&info->buff, &info->size_buff, stdin);
+    info->buff[(info->read - 1)] = '\0';
+    fprintf(stderr, "%d = %s\n", info->read, info->buff);
+
+/*    read = getline(&line, &len, stdin);
+    fprintf(stderr, "%s", line);*/
+
+/*    read(0, info->buff, 512);
+    info->tab = my_str_to_word_array(info->buff);
+    if (good_returned(info->tab, 0) != 0) {
+        write(1, "STOP_SIMULATION\n", 16);
+        return 84;
+    }
+    error = ai(info);
+    if (error == 84) {
+        write(1, "STOP_SIMULATION\n", 16);
+        return 84;
+    } else if (error == 0) {
+        write(1, "STOP_SIMULATION\n", 16);
+        return 0;
+    }
+}*/

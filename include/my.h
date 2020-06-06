@@ -16,8 +16,9 @@
 #include <string.h>
 
 typedef struct All {
-    //size_t size_buff;
-    char *buff;
+    size_t size_buff; // 0
+    char *buff; // NULL
+    int read; // 0
     char **tab; // NULL
     //int nb_dist; // 0
     int *dist; // NULL
