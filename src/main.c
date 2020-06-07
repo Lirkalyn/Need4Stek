@@ -28,9 +28,6 @@ all *info_initializer(void)
 
     if (info == NULL)
         return NULL;
-//    info->size_buff = 0;
-//    info->buff = NULL;
-//    info->read = 0;
     info->tab = NULL;
     info->dist = NULL;
     info->over = 1;
@@ -44,25 +41,15 @@ char **tab_giver(void)
     size_t size_buff = 0;
     char **rsl = NULL;
 
-    //usleep(1000);
     read = getline(&buff, &size_buff, stdin);
     if (read != -1) {
-//        fprintf(stderr, "7\n");
-//        fprintf(stderr, "\n%s\n", buff);
-//        fprintf(stderr, "8\n");
         if ((read - 1) >= 0)
             buff[(read - 1)] = '\0';
-//        fprintf(stderr, "9\n");
-//        for (; info->tab != NULL && info->tab[i] != NULL; i++)
-//            free(info->tab[i]);
-//        fprintf(stderr, "10\n");
         rsl = my_str_to_word_array(buff);
-//        fprintf(stderr, "11\n");
         if (rsl == NULL)
             return NULL;
         else
             return rsl;
-//        fprintf(stderr, "12\n");
     }
     else
         return rsl;
@@ -72,9 +59,11 @@ all *input_handler(all *info)
 {
     int i = 0;
 
-//    if (info->tab != NULL)
-//        for (; info->tab[i] != NULL; i++)
-//            free(info->tab[i]);
+    if (info->tab != NULL) {
+        for (; info->tab[i] != NULL; i++)
+            free(info->tab[i]);
+        free(info->tab[i]);
+    }
     info->tab = tab_giver();
     return info;
 }
