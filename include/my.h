@@ -14,7 +14,6 @@
 #include <string.h>
 
 typedef struct All {
-//    char *line;
     char **tab;
     int *dist;
     int over;

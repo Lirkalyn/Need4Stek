@@ -14,14 +14,13 @@ all *forward(all *info, char *cmd)
 
     write(1, cmd, len);
     info = input_handler(info);
-    //info->over = is_over(info);
-/*    if (info == NULL || good_returned(info->tab, 0) != 0) {
+    if (info == NULL || good_returned(info->tab, 0) != 0) {
         if (try == 10)
             return NULL;
         try++;
         write(1, cmd, len);
         info = input_handler(info);
-    }*/
+    }
     return info;
 }
 
@@ -32,14 +31,13 @@ all *left(all *info, char *cmd)
 
     write(1, cmd, len);
     info = input_handler(info);
-    //info->over = is_over(info);
-/*    if (info == NULL || good_returned(info->tab, 0) != 0) {
+    if (info == NULL || good_returned(info->tab, 0) != 0) {
         if (try == 10)
             return NULL;
         try++;
         write(1, cmd, len);
         info = input_handler(info);
-    }*/
+    }
     return info;
 }
 
@@ -50,13 +48,12 @@ all *right(all *info, char *cmd)
 
     write(1, cmd, len);
     info = input_handler(info);
-    //info->over = is_over(info);
-/*    if (info == NULL || good_returned(info->tab, 0) != 0) {
+    if (info == NULL || good_returned(info->tab, 0) != 0) {
         if (try == 10)
             return NULL;
         try++;
         write(1, cmd, len);
         info = input_handler(info);
-    }*/
+    }
     return info;
 }

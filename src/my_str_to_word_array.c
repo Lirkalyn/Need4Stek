@@ -69,17 +69,12 @@ char **my_str_to_word_array(char const *str)
 
     if (str == NULL)
         return NULL;
-    fprintf(stderr, "\n%s\n", str);
     size = calcsize(str);
-    fprintf(stderr, "size = %d\n", size);
     dest = malloc((size + 1) * sizeof(char *));
     if (dest == NULL)
         return NULL;
     dest[size] = NULL;
     size = 0;
     put_in_place(&size, dest, &progress, str);
-    for (int i = 0; dest[i] != NULL; i++)
-        fprintf(stderr, "->%s\n", dest[i]);
-    fprintf(stderr, "\n\n");
     return dest;
 }
