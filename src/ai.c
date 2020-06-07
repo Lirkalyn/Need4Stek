@@ -39,20 +39,57 @@ all *get_lidar(all *info)
         return info;
 }
 
+int is_over(all *info)
+{
+    int len = 0;
+
+    for (; info->tab[len] != NULL; len++);
+/*    if (str_compare(info->tab[(len - 1)], "CP Cleared\0") == 0)
+        return 84;
+    else */
+    if (str_compare(info->tab[(len - 2)], "Track Cleared\0") == 0)
+        return 0;
+    return 1;
+}
+
 int ai(all *info)
 {
     while (1) {
         info = get_lidar(info);
-        if (info == NULL)
+        if (info == NULL) {
+            fprintf(stderr, "********>1\n");
             return 84;
+        }
+        info->over = is_over(info);
+        fprintf(stderr, "1--------------->%d\n", info->over);
+        if (info->over == 0)
+            return 0;
         info = select_speed(info, info->dist[15]); // info = select_speed(info, info->dist[(info->dist[0] / 2)]); // peut être faire la moyenne entre 15 et 16 ?
-//        if (info == NULL)
-//            return 84;
-        info = get_lidar(info);
-        if (info == NULL)
+        if (info == NULL) {
+            fprintf(stderr, "********>2\n");
             return 84;
+        }
+        info->over = is_over(info);
+        fprintf(stderr, "2--------------->%d\n", info->over);
+        if (info->over == 0)
+            return 0;
+        info = get_lidar(info);
+        if (info == NULL) {
+            fprintf(stderr, "********>3\n");
+            return 84;
+        }
+        info->over = is_over(info);
+        fprintf(stderr, "3--------------->%d\n", info->over);
+        if (info->over == 0)
+            return 0;
         info = right_or_left(info);
-//        if (info == NULL)
-//            return 84;
+        if (info == NULL) {
+            fprintf(stderr, "********>4\n"); // 10 erreur sur 10 test consécutif avec make re entre chaque.
+            return 84;
+        }
+        info->over = is_over(info);
+        fprintf(stderr, "4--------------->%d\n", info->over);
+        if (info->over == 0)
+            return 0;
     }
 }

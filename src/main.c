@@ -28,50 +28,54 @@ all *info_initializer(void)
 
     if (info == NULL)
         return NULL;
-    info->size_buff = 0;
-    info->buff = NULL;
-    info->read = 0;
+//    info->size_buff = 0;
+//    info->buff = NULL;
+//    info->read = 0;
     info->tab = NULL;
     info->dist = NULL;
-    info->over = 0;
+    info->over = 1;
     return info;
 }
 
-all *input_handler(all *info)
+char **tab_giver(void)
 {
-    int i = 0;
     int read = 0;
     char *buff = NULL;
     size_t size_buff = 0;
+    char **rsl = NULL;
 
-    fprintf(stderr, "1\n");
-    //info->read = 0;
-    fprintf(stderr, "2\n");
-//    free(info->buff);
-    fprintf(stderr, "3\n");
-//    info->buff = NULL;
-    fprintf(stderr, "4\n");
-//    info->size_buff = 0;
-    fprintf(stderr, "5\n");
+    //usleep(1000);
     read = getline(&buff, &size_buff, stdin);
-    fprintf(stderr, "6\n");
     if (read != -1) {
-        fprintf(stderr, "7\n");
-        fprintf(stderr, "\n%s\n", buff);
-        fprintf(stderr, "8\n");
+//        fprintf(stderr, "7\n");
+//        fprintf(stderr, "\n%s\n", buff);
+//        fprintf(stderr, "8\n");
         if ((read - 1) >= 0)
             buff[(read - 1)] = '\0';
 //        fprintf(stderr, "9\n");
 //        for (; info->tab != NULL && info->tab[i] != NULL; i++)
 //            free(info->tab[i]);
-        fprintf(stderr, "10\n");
-        info->tab = my_str_to_word_array(buff);
-        fprintf(stderr, "11\n");
-        if (info->tab == NULL)
+//        fprintf(stderr, "10\n");
+        rsl = my_str_to_word_array(buff);
+//        fprintf(stderr, "11\n");
+        if (rsl == NULL)
             return NULL;
-        fprintf(stderr, "12\n");
+        else
+            return rsl;
+//        fprintf(stderr, "12\n");
     }
-    fprintf(stderr, "13\n\n\n");
+    else
+        return rsl;
+}
+
+all *input_handler(all *info)
+{
+    int i = 0;
+
+//    if (info->tab != NULL)
+//        for (; info->tab[i] != NULL; i++)
+//            free(info->tab[i]);
+    info->tab = tab_giver();
     return info;
 }
 
@@ -91,10 +95,12 @@ int main(void)
     error = ai(info);
     if (error == 84) {
         write(1, "STOP_SIMULATION\n", 16);
+        fprintf(stderr, "ERROR!!!\n");
         return 84;
     }
     else if (error == 0) {
         write(1, "STOP_SIMULATION\n", 16);
+        fprintf(stderr, "GG!!!\n");
         return 0;
     }
 }

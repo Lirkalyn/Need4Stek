@@ -20,7 +20,7 @@ SRC	=	src/main.c	\
 
 OBJ		=	$(SRC:.c=.o)
 
-CFLAGS  =       -I ./include/
+CFLAGS  =       -I ./include/ -o2
 
 all:	$(NAME)
 

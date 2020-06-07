@@ -16,9 +16,9 @@
 #include <string.h>
 
 typedef struct All {
-    size_t size_buff;
-    char *buff;
-    int read;
+//    size_t size_buff;
+//    char *buff;
+//    int read;
     char **tab;
     int *dist;
     int over;

@@ -41,6 +41,8 @@ all *turn_right(all *info, int mid_dist)
 
 all *right_or_left(all *info)
 {
+    // old ok = 5 , wall = 1 // 6
+    // new ok = 5 , wall = 5, "wall" = 1 // 10 / 10 //*--*// // new ok = 3 , wall = 3, "wall" = 1 // 10 / 6
     int dir = (info->dist[1] - info->dist[32]);
 
     //fprintf(stderr, "(%d - %d) = %d\n", info->dist[1], info->dist[31], dir);
@@ -49,4 +51,6 @@ all *right_or_left(all *info)
         return turn_left(info, info->dist[15]);
     else if (dir > 0)
         return turn_right(info, info->dist[15]);
+    else
+        return info;
 }
