@@ -37,6 +37,19 @@ all *info_initializer(void)
     return info;
 }
 
+all *input_handler(all *info)
+{
+    info->read = 0;
+    info->buff = NULL;
+    info->size_buff = 0;
+    info->read = getline(&info->buff, &info->size_buff, stdin);
+    info->buff[(info->read - 1)] = '\0';
+    info->tab = my_str_to_word_array(info->buff);
+    if (info->tab == NULL)
+        return NULL;
+    return info;
+}
+
 int main(void)
 {
     all *info = info_initializer();
@@ -45,9 +58,7 @@ int main(void)
     if (info == NULL)
         return 84;
     write(1, "START_SIMULATION\n", 17);
-    info->read = getline(&info->buff, &info->size_buff, stdin);
-    info->buff[(info->read - 1)] = '\0';
-    info->tab = my_str_to_word_array(info->buff);
+    info = input_handler(info);
     if (good_returned(info->tab, 0) != 0) {
         write(1, "STOP_SIMULATION\n", 16);
         return 84;
@@ -56,7 +67,8 @@ int main(void)
     if (error == 84) {
         write(1, "STOP_SIMULATION\n", 16);
         return 84;
-    } else if (error == 0) {
+    }
+    else if (error == 0) {
         write(1, "STOP_SIMULATION\n", 16);
         return 0;
     }

@@ -148,3 +148,16 @@ int ai_2(int len, int *dist, char **info)
         return 0;
     }
 }*/
+
+
+
+
+/*
+    fprintf(stderr, "pre-main\n");
+    info->inp = inp_taker();
+    fprintf(stderr, "post-main\n");
+    while(info->inp->next != NULL) {
+        fprintf(stderr, "ok\n");
+        fprintf(stderr, "%s\n", info->inp->buff);
+        info->inp = info->inp->next;
+    }*/
