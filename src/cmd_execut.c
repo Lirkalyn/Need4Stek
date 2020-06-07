@@ -16,14 +16,14 @@ all *forward(all *info, char *cmd)
 
     write(1, cmd, len);
     info = input_handler(info);
-    if (good_returned(info->tab, 0) != 0) {
+/*    if (good_returned(info->tab, 0) != 0) {
 //        fprintf(stderr, "f2\n");
         if (try == 10)
             return NULL;
         try++;
         write(1, cmd, 16);
         info = input_handler(info);
-    }
+    }*/
     return info;
 }
 
@@ -36,14 +36,14 @@ all *left(all *info, char *cmd)
 
     write(1, cmd, len);
     info = input_handler(info);
-    if (good_returned(info->tab, 0) != 0) {
+/*    if (good_returned(info->tab, 0) != 0) {
 //        fprintf(stderr, "l2\n");
         if (try == 10)
             return NULL;
         try++;
         write(1, cmd, len);
         info = input_handler(info);
-    }
+    }*/
     return info;
 }
 
@@ -56,13 +56,13 @@ all *right(all *info, char *cmd)
 
     write(1, cmd, len);
     info = input_handler(info);
-    if (good_returned(info->tab, 0) != 0) {
+/*    if (good_returned(info->tab, 0) != 0) {
 //        fprintf(stderr, "r2\n");
         if (try == 10)
             return NULL;
         try++;
         write(1, cmd, len);
         info = input_handler(info);
-    }
+    }*/
     return info;
 }

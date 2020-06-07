@@ -67,11 +67,11 @@ char **my_str_to_word_array(char const *str)
     int size = 0;
     char **dest;
 
-    fprintf(stderr, "\n%s\n", str);
+    //fprintf(stderr, "\n%s\n", str);
     if (str == NULL)
         return NULL;
     size = calcsize(str);
-    fprintf(stderr, "size = %d\n", size);
+//    fprintf(stderr, "size = %d\n", size);
     dest = malloc((size + 1) * sizeof(char *));
     if (dest == NULL)
         return NULL;
