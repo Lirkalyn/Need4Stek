@@ -16,9 +16,6 @@
 #include <string.h>
 
 typedef struct All {
-//    size_t size_buff;
-//    char *buff;
-//    int read;
     char **tab;
     int *dist;
     int over;
@@ -34,7 +31,6 @@ int my_puterror(char *str, int opt);
 int *dist_mallocer(char **str);
 int *dist_giver(char **str, int *dist);
 int good_returned(char **str, int opt);
-int isturn(int nb1, int nb2);
 int ai(all *info);
 all *forward(all *info, char *cmd);
 all *left(all *info, char *cmd);

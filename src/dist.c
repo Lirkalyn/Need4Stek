@@ -7,20 +7,6 @@
 
 #include "my.h"
 
-int isturn(int nb1, int nb2)
-{
-    int max = (nb1 > nb2) ? nb1 : nb2;
-    int which = (nb1 > nb2) ? 0 : 1;
-    int amax10 = max/10;
-
-    if (which == 0 && ((nb1 - nb2) > amax10))
-        return 1;
-    else if (which == 1 && ((nb2 - nb1) > amax10))
-        return 2;
-    else
-        return 0;
-}
-
 int *dist_mallocer_2(int *rsl, int len)
 {
     int i = 0;
@@ -54,7 +40,6 @@ int *dist_mallocer(char **str)
         if (good == 0 && goodd == 1)
             len++;
     }
-    //fprintf(stderr, "%d\n\n", (len + 1));
     return dist_mallocer_2(rsl, (len + 1));
 }
 
