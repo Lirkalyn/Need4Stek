@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "racket": "racket",
-        "*.tcc": "c",
-        "string": "c",
-        "istream": "c",
-        "streambuf": "c"
-    }
-}
