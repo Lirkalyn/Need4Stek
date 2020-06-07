@@ -14,6 +14,7 @@
 #include <string.h>
 
 typedef struct All {
+//    char *line;
     char **tab;
     int *dist;
     int over;
@@ -37,5 +38,6 @@ all *right_or_left(all *info);
 int my_strlen(char *str);
 char **my_str_to_word_array(char const *str);
 all *input_handler(all *info);
+int is_over(all *info);
 
 #endif

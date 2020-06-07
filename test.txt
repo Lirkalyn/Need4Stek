@@ -1,0 +1,4 @@
+$>$>$>$>$>$>$>$>SIGNAL [2]
+Last state registered: 2:OK:Simulation running
+Completed 0/2 laps
+None

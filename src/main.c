@@ -28,6 +28,7 @@ all *info_initializer(void)
 
     if (info == NULL)
         return NULL;
+//    info->line = NULL;
     info->tab = NULL;
     info->dist = NULL;
     info->over = 1;
@@ -65,6 +66,8 @@ all *input_handler(all *info)
         free(info->tab[i]);
     }
     info->tab = tab_giver();
+    for (int i = 0; info->tab[i] != NULL; i++)
+        fprintf(stderr, "c%s\n", info->tab[i]);
     return info;
 }
 
@@ -77,6 +80,8 @@ int main(void)
         return 84;
     write(1, "START_SIMULATION\n", 17);
     info = input_handler(info);
+//    for (int i = 0; info->tab[i] != NULL; i++)
+//        fprintf(stderr, "**>%s\n", info->tab[i]);
     if (good_returned(info->tab, 0) != 0) {
         write(1, "STOP_SIMULATION\n", 16);
         return 84;
