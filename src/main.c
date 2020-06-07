@@ -15,11 +15,13 @@ int good_returned(char **str, int opt)
         len++;
     if (len < 4)
         return 84;
-    if (opt == 0)
+    if (opt == 0) {
         if (str_compare(str[1], "OK\0") != 0)
             return 84;
         else
             return 0;
+    }
+    return 0;
 }
 
 all *info_initializer(void)

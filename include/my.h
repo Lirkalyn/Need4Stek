@@ -30,13 +30,11 @@ int *dist_mallocer(char **str);
 int *dist_giver(char **str, int *dist);
 int good_returned(char **str, int opt);
 int ai(all *info);
-all *forward(all *info, char *cmd);
-all *left(all *info, char *cmd);
-all *right(all *info, char *cmd);
 all *right_or_left(all *info);
 int my_strlen(char *str);
 char **my_str_to_word_array(char const *str);
 all *input_handler(all *info);
 int is_over(all *info);
+all *cmds_exec(all *info, char *cmd);
 
 #endif
