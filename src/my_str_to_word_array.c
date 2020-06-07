@@ -35,7 +35,9 @@ int count_memory(int i, char const *str, int size)
             || (str[i] == '.')
             || (str[i] == '[')
             || (str[i] == ']')
-            || (str[i] == '-')) {
+            || (str[i] == '-')
+            || (str[i] == '=')
+            || (str[i] == '!')) {
         size++;
         i++;
     }

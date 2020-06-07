@@ -36,5 +36,6 @@ char **my_str_to_word_array(char const *str);
 all *input_handler(all *info);
 int is_over(all *info);
 all *cmds_exec(all *info, char *cmd);
+void stop(void);
 
 #endif

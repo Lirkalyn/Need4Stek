@@ -9,10 +9,16 @@
 
 all *select_speed(all *info, int mid_dist)
 {
+    if (mid_dist <= 150)
+        return cmds_exec(info, "CAR_BACKWARDS:0.3\n\0");
     if (mid_dist >= 2000)
+        return cmds_exec(info, "CAR_FORWARD:1.0\n\0");
+    if (mid_dist >= 1700)
         return cmds_exec(info, "CAR_FORWARD:0.9\n\0");
     if (mid_dist >= 1500)
         return cmds_exec(info, "CAR_FORWARD:0.7\n\0");
+    if (mid_dist >= 1300)
+        return cmds_exec(info, "CAR_FORWARD:0.5\n\0");
     if (mid_dist >= 1000)
         return cmds_exec(info, "CAR_FORWARD:0.4\n\0");
     if (mid_dist >= 600)

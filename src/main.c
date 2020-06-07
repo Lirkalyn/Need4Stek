@@ -80,16 +80,19 @@ int main(void)
     write(1, "START_SIMULATION\n", 17);
     info = input_handler(info);
     if (good_returned(info->tab, 0) != 0) {
-        write(1, "STOP_SIMULATION\n", 16);
+        stop();
+        //write(1, "STOP_SIMULATION\n", 16);
         return 84;
     }
     error = ai(info);
     if (error == 84) {
-        write(1, "STOP_SIMULATION\n", 16);
+        stop();
+        //write(1, "STOP_SIMULATION\n", 16);
         fprintf(stderr, "ERROR!!!\n");
         return 84;
     } else if (error == 0) {
-        write(1, "STOP_SIMULATION\n", 16);
+        stop();
+        //write(1, "STOP_SIMULATION\n", 16);
         fprintf(stderr, "GG!!!\n");
         return 0;}
 }

@@ -23,3 +23,9 @@ all *cmds_exec(all *info, char *cmd)
     }
     return info;
 }
+
+void stop(void)
+{
+    write(1, "CAR_FORWARD:0.0\n", 16);
+    write(1, "STOP_SIMULATION\n", 16);
+}

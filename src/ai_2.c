@@ -9,10 +9,16 @@
 
 all *turn_left(all *info, int mid_dist)
 {
+    if (mid_dist <= 150)
+        return cmds_exec(info, "WHEELS_DIR:0.0\n\0");
     if (mid_dist >= 1500)
         return cmds_exec(info, "WHEELS_DIR:-0.005\n\0");
+    if (mid_dist >= 1300)
+        return cmds_exec(info, "WHEELS_DIR:-0.01\n\0");
     if (mid_dist >= 1000)
         return cmds_exec(info, "WHEELS_DIR:-0.05\n\0");
+    if (mid_dist >= 800)
+        return cmds_exec(info, "WHEELS_DIR:-0.075\n\0");
     if (mid_dist >= 600)
         return cmds_exec(info, "WHEELS_DIR:-0.1\n\0");
     if (mid_dist >= 400)
@@ -25,10 +31,16 @@ all *turn_left(all *info, int mid_dist)
 
 all *turn_right(all *info, int mid_dist)
 {
+    if (mid_dist <= 150)
+        return cmds_exec(info, "WHEELS_DIR:0.0\n\0");
     if (mid_dist >= 1500)
         return cmds_exec(info, "WHEELS_DIR:0.005\n\0");
+    if (mid_dist >= 1300)
+        return cmds_exec(info, "WHEELS_DIR:0.01\n\0");
     if (mid_dist >= 1000)
         return cmds_exec(info, "WHEELS_DIR:0.05\n\0");
+    if (mid_dist >= 800)
+        return cmds_exec(info, "WHEELS_DIR:0.075\n\0");
     if (mid_dist >= 600)
         return cmds_exec(info, "WHEELS_DIR:0.1\n\0");
     if (mid_dist >= 400)
