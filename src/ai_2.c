@@ -43,10 +43,10 @@ all *right_or_left(all *info)
 {
     int dir = (info->dist[1] - info->dist[32]);
 
-    if (dir < 0)
-        return turn_left(info, info->dist[15]);
+    if (dir <= 0)
+        return turn_left(info, info->dist[16]);
     else if (dir > 0)
-        return turn_right(info, info->dist[15]);
+        return turn_right(info, info->dist[16]);
     else
         return info;
 }

@@ -8,8 +8,6 @@
 #ifndef MY_H_
 #define MY_H_
 
-#define EXIT_FAIL 84
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
