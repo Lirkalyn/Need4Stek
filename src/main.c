@@ -86,10 +86,8 @@ int main(void)
         write(1, "STOP_SIMULATION\n", 16);
         fprintf(stderr, "ERROR!!!\n");
         return 84;
-    }
-    else if (error == 0) {
+    } else if (error == 0) {
         write(1, "STOP_SIMULATION\n", 16);
         fprintf(stderr, "GG!!!\n");
-        return 0;
-    }
+        return 0;}
 }

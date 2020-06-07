@@ -210,3 +210,61 @@ int ai_2(int len, int *dist, char **info)
     fprintf(stderr, "13\n\n\n");
     return info;
 }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int ai(all *info)
+{
+    while (1) {
+        info = get_lidar(info);
+        if (info == NULL) {
+            fprintf(stderr, "********>1\n");
+            return 84;
+        }
+        info->over = is_over(info);
+        fprintf(stderr, "1--------------->%d\n", info->over);
+        if (info->over == 0)
+            return 0;
+        info = select_speed(info, info->dist[15]); // info = select_speed(info, info->dist[(info->dist[0] / 2)]); // peut être faire la moyenne entre 15 et 16 ?
+        if (info == NULL) {
+            fprintf(stderr, "********>2\n");
+            return 84;
+        }
+        info->over = is_over(info);
+        fprintf(stderr, "2--------------->%d\n", info->over);
+        if (info->over == 0)
+            return 0;
+        info = get_lidar(info);
+        if (info == NULL) {
+            fprintf(stderr, "********>3\n");
+            return 84;
+        }
+        info->over = is_over(info);
+        fprintf(stderr, "3--------------->%d\n", info->over);
+        if (info->over == 0)
+            return 0;
+        info = right_or_left(info);
+        if (info == NULL) {
+            fprintf(stderr, "********>4\n"); // 10 erreur sur 10 test consécutif avec make re entre chaque.
+            return 84;
+        }
+        info->over = is_over(info);
+        fprintf(stderr, "4--------------->%d\n", info->over);
+        if (info->over == 0)
+            return 0;
+    }
+}
